@@ -25,9 +25,11 @@ const App = () => {
   const pageSize = 12;
 
   useEffect(() => {
+    if (!searchQuery) {
+      return;
+    }
     const fetchImages = () => {
       const options = { searchQuery, currentPage, pageSize };
-
       setLoading(true);
 
       imagesApi
